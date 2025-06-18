@@ -1,18 +1,19 @@
 // src/components/molecules/FormattingControls.tsx
 import React from "react";
-import { Bold, Italic, Underline } from "lucide-react";
+import { Bold, Italic, Underline, Highlighter } from "lucide-react";
 import IconButton from "../atoms/IconButton";
 import { Editor } from "@tiptap/react";
-import ColorPickerPopover from "./ColorPickerPopover";
+import ColorPickerPopover from "./ColorPicker";
+import HighlightPickerPopover from "./HighlightColorPickerPopover";
 
 interface Props {
   editor: Editor;
 }
 
 const FormattingControls: React.FC<Props> = ({ editor }) => {
-    
   return (
-    <div className="flex gap-2">
+    <>
+      <div className="mx-1 border h-4 border-gray-400" />
       <IconButton
         onClick={() => editor.chain().focus().toggleBold().run()}
         icon={<Bold size={15} strokeWidth={3} />}
@@ -31,11 +32,10 @@ const FormattingControls: React.FC<Props> = ({ editor }) => {
         active={editor.isActive("underline")}
         label="Underline"
       />
-      
-      <ColorPickerPopover
-        editor={editor}
-      />
-    </div>
+      <ColorPickerPopover editor={editor} />
+      <HighlightPickerPopover editor={editor} />
+      <div className="mx-1 border h-4 border-gray-400" />
+    </>
   );
 };
 

@@ -4,12 +4,20 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import EditorBar from "./EditorBar";
 import Underline from "@tiptap/extension-underline";
-import { Color } from "@tiptap/extension-color";
+import Color  from "@tiptap/extension-color";
+import TextStyle from "@tiptap/extension-text-style";
+import Hightlight from '@tiptap/extension-highlight';
+
 
 
 const Editor: React.FC = () => {
   const editor = useEditor({
-    extensions: [StarterKit, Underline, Color],
+    extensions: [
+      StarterKit, Underline, Color, TextStyle, 
+      Hightlight.configure({multicolor: true}),
+      // FontSize
+
+    ],
     content: "<p>Start writing...</p>",
     editorProps: {
       attributes: {

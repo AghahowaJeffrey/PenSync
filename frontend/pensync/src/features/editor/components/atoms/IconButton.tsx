@@ -16,7 +16,7 @@ const IconButton: React.FC<IconButtonProps> = ({ onClick, icon, active = false, 
       onClick={onClick}
       aria-label={label}
       title={label}
-      className={`p-1 rounded
+      className={`p-2 rounded
         ${
           active
             ? "bg-blue-100 text-gray-800 hover:bg-blue-100"
